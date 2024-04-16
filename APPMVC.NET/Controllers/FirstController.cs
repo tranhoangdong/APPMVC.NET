@@ -1,6 +1,7 @@
 ﻿using APPMVC.NET.Service;
 
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.Extensions.Logging;
 
 using System;
@@ -25,7 +26,7 @@ namespace APPMVC.NET.Controllers
         {
             _logger.LogWarning("thongbao");
             _logger.LogInformation("Index Action");
-            return "toi laf Index cua First";
+            return "toi la Index cua First";
         }
         public void Nothing()
         {
@@ -93,11 +94,19 @@ namespace APPMVC.NET.Controllers
         {
             var product = _productService.Where(p => p.Id ==id).FirstOrDefault();
             if (product == null)
-                return NotFound();
-            return View(product);
+            {
+                TempData["StatusMessage"] = "san pham da het";
+                return LocalRedirect(Url.Action("Index", "Home"));
+            }
+            //return NotFound();
+            //return View(product);
+            //this.ViewData["product"] = product;
+            //return View("Viewproduct2");
+
+            ViewBag.product = product;
+            return View("Viewproduct3");
         }
 
-
-
+       
     }
 }

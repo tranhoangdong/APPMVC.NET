@@ -14,3 +14,6 @@ namespace APPMVC.NET.Models
         public double Price { get; set; }
     }
 }
+
+
+
