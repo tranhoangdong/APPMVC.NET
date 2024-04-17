@@ -43,6 +43,8 @@ namespace APPMVC.NET.Controllers
             var planet = _planetService.Where(p => p.Name == Name).FirstOrDefault();
             return View("Detail", planet);
         }
+
+        [HttpGet("/saomoc.html")]
         public IActionResult Jupiter()
         {
             var planet = _planetService.Where(p => p.Name == Name).FirstOrDefault();
@@ -69,5 +71,6 @@ namespace APPMVC.NET.Controllers
             var planet = _planetService.Where(x => x.Id == id).FirstOrDefault();
             return View("Detail", planet);
         }
+
     }
 }
