@@ -19,7 +19,7 @@ namespace APPMVC.NET.Controllers
         public IActionResult Index()
         {
             var products = _productService.OrderBy(p => p.Name).ToList();
-            return View();
+            return View(products);
         }
     }
 }
