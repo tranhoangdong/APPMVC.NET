@@ -36,18 +36,18 @@ namespace APPMVC.NET
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        b
+        {
 
 
-            services.AddDbContext<AppDbContext>(options => {
+            services.AddDbContext<App.Models.AppDbContext>(options => {
                 string connectString = Configuration.GetConnectionString("AppMvcConnectionString");
                 options.UseSqlServer(connectString);
             });
             // đăng kí Identity
-
             services.AddIdentity<AppUser, IdentityRole>()
-                 .AddEntityFrameworkStores<AppDbContext>()
+                 .AddEntityFrameworkStores<App.Models.AppDbContext>()
                  .AddDefaultTokenProviders();
+
             // Truy cập IdentityOptions
             services.Configure<IdentityOptions>(options => {
                 // Thiết lập về Password
