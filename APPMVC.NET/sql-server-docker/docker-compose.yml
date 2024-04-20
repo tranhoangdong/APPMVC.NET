@@ -1,0 +1,11 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace APPMVC.NET.sql_server_docker
+{
+    public class docker_compose
+    {
+    }
+}

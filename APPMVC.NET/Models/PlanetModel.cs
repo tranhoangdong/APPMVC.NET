@@ -12,7 +12,7 @@ namespace APPMVC.NET.Models
         public string Name { get; set; }
 
         public string VNName { get; set; }
-
+ 
         public string Content { get; set; }
 
     }
