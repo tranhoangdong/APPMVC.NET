@@ -20,6 +20,7 @@ using System.Net;
 using System.Threading.Tasks;
 using App.Models;
 using Microsoft.AspNetCore.Identity;
+using App.Services;
 
 namespace APPMVC.NET
 {
@@ -99,6 +100,12 @@ namespace APPMVC.NET
                     // .AddTwitter()
                     // .AddMicrosoftAccount()
                     ;
+            services.AddSingleton<IdentityErrorDescriber, AppIdentityErrorDescriber>();
+            // đăng kí Iemail
+            services.AddOptions();
+            var mailsetting = Configuration.GetSection("MailSettings");
+            services.Configure<MailSettings>(mailsetting);
+            services.AddSingleton<IEmailSender, SendMailService>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();
